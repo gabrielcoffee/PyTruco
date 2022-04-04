@@ -1,18 +1,5 @@
-import Rodada
-import Carta
+import Jogo
 import Jogador
-
-def CriarCartas():
-    valores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    naipes = [1, 2, 3, 4]
-    listaCartas = []
-
-    # Cria todas as cartas possíveis (40) e adiciona a lista
-    for valor in valores:
-        for naipe in naipes:
-            carta = Carta.Carta(valor, naipe)
-            listaCartas.append(carta)
-    return listaCartas
 
 def CriarJogadores():
     nomeJogador1 = input('Insira nome do jogador 1: ')
@@ -22,13 +9,16 @@ def CriarJogadores():
     jogador2 = Jogador.Jogador(nomeJogador2, 0)
     return [jogador1, jogador2]
 
-cartas = CriarCartas()
+# Inicia os objetos do jogo
 jogadores = CriarJogadores()
-rodadaAtual = Rodada.Rodada(jogadores)
-rodadaAtual.DistribuirCartas(cartas)
+jogo = Jogo.Jogo(jogadores)
 
-# Ações dos jogadores
-rodadaAtual.JogarJogo()
+# Inicia Loop do jogo
+jogo.LoopJogo()
+
+print('OBRIGADO POR JOGAR!')
+
+
 
 
 
